@@ -4,6 +4,8 @@ const WeatherCard: FC = () => {
     return (
         <div>
             WeatherCard
+            WeatherCard
+
         </div>
     )
 }
