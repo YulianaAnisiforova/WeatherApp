@@ -1,0 +1,137 @@
+/* .card {
+  background-color: rgb(116, 144, 180);
+  color: rgb(91, 91, 92);
+  height: 300px;
+  width: 650px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+
+.header {
+    color: rgb(240, 255, 255);
+}
+
+.temp {
+    color: rgb(80, 220, 180);
+}
+
+.cond {
+    color: rgb(170, 100, 255);
+} */
+
+.card {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 16px;
+  box-shadow: 
+    0 0 10px rgba(102, 51, 255, 0.5),
+    0 0 20px rgba(102, 51, 255, 0.3),
+    0 0 30px rgba(102, 51, 255, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid rgba(102, 51, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff00cc, #3333ff, #00ccff);
+  z-index: -1;
+  filter: blur(5px);
+  opacity: 0.5;
+  border-radius: 18px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(102, 51, 255, 0.5);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(102, 51, 255, 0.7);
+}
+
+.mainTemp {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00ffcc;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+}
+
+.weatherGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.weatherItem {
+  background: rgba(30, 30, 60, 0.5);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 51, 255, 0.3);
+  box-shadow: 0 0 10px rgba(102, 51, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.weatherItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(102, 51, 255, 0.5);
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #a0a0ff;
+  margin-bottom: 0.3rem;
+}
+
+.value {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .weatherGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .mainTemp {
+    font-size: 2.5rem;
+  }
+}
