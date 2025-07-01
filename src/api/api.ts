@@ -17,7 +17,7 @@ const instance = axios.create({
 
 export const weatherAPI = {
     getWeatherAPI () {
-        return instance.get('weather?q=London,uk&units=metric&APPID=d3de50686c876ef67661ed5a7ae801d0')
+        return instance.get('weather?q=Kazan,ru&units=metric&APPID=d3de50686c876ef67661ed5a7ae801d0')
         .then(response => response.data)
     }
 }
