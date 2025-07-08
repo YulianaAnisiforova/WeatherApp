@@ -54,3 +54,9 @@
     cursor: default;
     pointer-events: none;
 }
+
+@media (max-width: 600px) {
+    .searchInput {
+        width: 200px;
+    }
+}
