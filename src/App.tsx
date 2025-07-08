@@ -3,7 +3,7 @@ import WeatherCard from './components/WeatherCard/WeatherCard'
 import SearchBar from './components/SearchBar/SearchBar'
 
 function App() {
-  const [city, setCity] = useState('Madrid')
+  const [city, setCity] = useState('Kazan')
 
   return (
     <div>
