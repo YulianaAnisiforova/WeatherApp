@@ -27,6 +27,29 @@ const WeatherCard: FC<WeatherCardPropsType> = ({city}) => {
   const flag = countryCode ? emojiFlags.countryCode(countryCode)?.emoji : ''
   
   const countryName = countryCode ? getName(countryCode) : ''
+
+  const weatherItems = [
+    {
+        label: 'Feels like',
+        value: `${Math.round(weather.main.feels_like)}°C`,
+        key: 'feelsLike'
+    },
+    {
+        label: 'Condition',
+        value: weather.weather[0].description,
+        key: 'condition'
+    },
+    {
+        label: 'Humidity',
+        value: `${weather.main.humidity}%`,
+        key: 'humidity'
+    },
+    {
+        label: 'Wind',
+        value: `${weather.wind.speed} m/s`,
+        key: 'wind'
+    }
+  ]
   
   return (
     <div className={styles.card}>
@@ -41,27 +64,13 @@ const WeatherCard: FC<WeatherCardPropsType> = ({city}) => {
                 <div className={styles.mainInfo}>{weather.weather[0].main}</div>
             </div>
         </div>
-        
         <div className={styles.weatherGrid}>
-            <div className={styles.weatherItem}>
-                <span className={styles.label}>Feels like</span>
-                <span className={styles.value}>{Math.round(weather.main.feels_like)}°C</span>
-            </div>
-            
-            <div className={styles.weatherItem}>
-                <span className={styles.label}>Condition</span>
-                <span className={styles.value}>{weather.weather[0].description}</span>
-            </div>
-
-            <div className={styles.weatherItem}>
-                <span className={styles.label}>Humidity</span>
-                <span className={styles.value}>{weather.main.humidity}%</span>
-            </div>
-
-            <div className={styles.weatherItem}>
-                <span className={styles.label}>Wind</span>
-                <span className={styles.value}>{weather.wind.speed} m/s</span>
-            </div>
+            {weatherItems.map((item) => (
+                <div className={styles.weatherItem} key={item.key}>
+                    <span className={styles.label}>{item.label}</span>
+                    <span className={styles.value}>{item.value}</span>
+                </div>
+            ))}
         </div>
     </div>
   )
