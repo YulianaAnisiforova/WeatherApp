@@ -9,7 +9,7 @@ function App() {
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
-      dispatch(getWeatherThunk())
+      // dispatch(getWeatherThunk())
     }, [searchValue])
 
   return (

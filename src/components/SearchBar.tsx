@@ -11,11 +11,14 @@ const SearchBar: FC<SearchBarpropsType> = ({searchValue, setSearchValue}) => {
 
   return (
     <div className={styles.searchBox}>
-        <input className={styles.input}
+        <input className={styles.searchInput}
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
             placeholder='Search ...'
         />
+        <button className={styles.searchBtn}
+            disabled={searchValue === ''}
+            >→</button>
     </div>
   )
 }
