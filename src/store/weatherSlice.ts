@@ -3,12 +3,10 @@ import { weatherAPI } from '../api/api'
 
 interface WeatherState {
     data: any,
-    // status: 'loading' | 'success' | 'error',
 }
 
 const initialState: WeatherState = {
     data: null,
-    // status: 'loading',
 }
 
 export const getWeatherThunk = createAsyncThunk(
@@ -30,15 +28,12 @@ export const weatherSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getWeatherThunk.pending, (state) => {
-        // state.status = 'loading'
         state.data = []
       })
       .addCase(getWeatherThunk.fulfilled, (state, action) => {
-        // state.status = 'success'
         state.data = action.payload
       })
       .addCase(getWeatherThunk.rejected, (state) => {
-        // state.status = 'error'
         state.data = []
       })
   }

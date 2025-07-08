@@ -1,0 +1,29 @@
+.searchBox {
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    width: 250px;
+    outline: none;
+    font-size: 17px;
+    padding: 10px;
+    border-radius: 12px;
+    color: #a0a0ff;
+
+    background: rgba(30, 30, 60, 0.5);
+    border: 1px solid rgba(102, 51, 255, 0.3);
+    box-shadow: 0 0 10px rgba(102, 51, 255, 0.2);
+}
+
+.input:focus {
+    box-shadow: 
+    0 0 10px rgba(102, 51, 255, 0.5),
+    0 0 20px rgba(102, 51, 255, 0.3),
+    0 0 30px rgba(102, 51, 255, 0.1);
+    border: 1px solid rgba(102, 51, 255, 0.3);
+}
+
+.input::placeholder {
+    color: #a0a0ff;
+}
