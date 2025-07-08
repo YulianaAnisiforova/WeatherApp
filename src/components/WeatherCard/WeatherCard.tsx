@@ -1,19 +1,23 @@
 import { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, RootState } from '../store/store'
-import { getWeatherThunk } from '../store/weatherSlice'
+import { AppDispatch, RootState } from '../../store/store'
+import { getWeatherThunk } from '../../store/weatherSlice'
 import emojiFlags from 'emoji-flags'
 import { getName } from 'country-list'
 
 import styles from './WeatherCard.module.css'
 
-const WeatherCard: FC = () => {
+type WeatherCardPropsType = {
+    city: string,
+}
+
+const WeatherCard: FC<WeatherCardPropsType> = ({city}) => {
   const dispatch = useDispatch<AppDispatch>()
   const weather = useSelector((state: RootState) => state.weather.data)
 
   useEffect(() => {
-    dispatch(getWeatherThunk())
-  }, [])
+    dispatch(getWeatherThunk(city))
+  }, [city])
 
   if (!weather || !weather.main) {
     return <div>Loading weather...</div>

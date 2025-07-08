@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import WeatherCard from './components/WeatherCard'
-import SearchBar from './components/SearchBar'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from './store/store'
+import {  useState } from 'react'
+import WeatherCard from './components/WeatherCard/WeatherCard'
+import SearchBar from './components/SearchBar/SearchBar'
 
 function App() {
-  const [searchValue, setSearchValue] = useState('')
-  const dispatch = useDispatch<AppDispatch>()
-
-  useEffect(() => {
-      // dispatch(getWeatherThunk())
-    }, [searchValue])
+  const [city, setCity] = useState('Madrid')
 
   return (
     <div>
-      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
-      <WeatherCard/>
+      <SearchBar setCity={setCity} />
+      <WeatherCard city={city} />
     </div>
   )
 }

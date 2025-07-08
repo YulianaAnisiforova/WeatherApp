@@ -11,8 +11,8 @@ const initialState: WeatherState = {
 
 export const getWeatherThunk = createAsyncThunk(
     'weather/getWeatherStatus',
-    async () => {
-      const data = await weatherAPI.getWeatherAPI()
+    async (city: string) => {
+      const data = await weatherAPI.getWeatherAPI(city)
       return data
     },
 )

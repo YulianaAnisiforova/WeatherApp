@@ -1,13 +1,13 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import styles from './SearchBar.module.css'
 
-type SearchBarpropsType = {
-    searchValue: string,
-    setSearchValue: (searchValue: string) => void,
+type SearchBarPropsType = {
+    setCity: (city: string) => void,
 }
 
-const SearchBar: FC<SearchBarpropsType> = ({searchValue, setSearchValue}) => {
+const SearchBar: FC<SearchBarPropsType> = ({setCity}) => {
+  const [searchValue, setSearchValue] = useState('')
 
   return (
     <div className={styles.searchBox}>
@@ -18,6 +18,10 @@ const SearchBar: FC<SearchBarpropsType> = ({searchValue, setSearchValue}) => {
         />
         <button className={styles.searchBtn}
             disabled={searchValue === ''}
+            onClick={() => {
+              setCity(searchValue)
+              setSearchValue('')
+            }}
             >→</button>
     </div>
   )
